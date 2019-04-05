@@ -3,9 +3,9 @@ My attempts to install macOS on Dell Inspiron 15-5567 (i3-7100u, Intel HD620)
 
 #### Currently not working
 - 32-bit color (proper EDID inject may be needed)
-- HDMI (proper patching is required)
 - WiFi (Need to replace PCI card, currently using external)
 - Card Reader (Will never work)
+- Audio: when headphone is inserted, microphone doesn't work
 
 #### Applied DSDT Patches
 - [sys] Fix Mutex with non-zero SyncLevel
