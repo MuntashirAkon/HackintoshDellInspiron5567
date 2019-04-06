@@ -5,11 +5,11 @@ My attempts to install macOS on Dell Inspiron 15-5567 (i3-7100u, Intel HD620)
 - 32-bit color (proper EDID inject may be needed)
 - WiFi (Need to replace PCI card, currently using external)
 - Card Reader (Will never work)
-- Audio: when headphone is inserted, microphone doesn't work
 
 #### Applied DSDT Patches
+- [sys] Fix _WAK Arg0 v2
 - [sys] Fix Mutex with non-zero SyncLevel
-- [sys] Shutdown fix
+- [sys] Shutdown Fix v2
 
 #### Current EDID
 ```
