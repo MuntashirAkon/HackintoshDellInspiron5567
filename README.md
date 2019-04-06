@@ -14,6 +14,14 @@ My attempts to install macOS on Dell Inspiron 15-5567 (i3-7100u, Intel HD620)
 ##### I2C Patches
 - [Windows] Windows 10 Patch
 - [GPIO] GPIO Controller Enable [SKL+]
+- [TPD0] TPD0 _CRS patch
+  ```
+  into method label _CRS parent_label TPD0 replace_content begin
+  
+  Return (ConcatenateResTemplate (SBFB, SBFG))
+  
+  end;
+  ```
 
 #### Current EDID
 ```
