@@ -7,9 +7,13 @@ My attempts to install macOS on Dell Inspiron 15-5567 (i3-7100u, Intel HD620)
 - Card Reader (Will never work)
 
 #### Applied DSDT Patches
+##### General Patches
 - [sys] Fix _WAK Arg0 v2
 - [sys] Fix Mutex with non-zero SyncLevel
 - [sys] Shutdown Fix v2
+##### I2C Patches
+- [Windows] Windows 10 Patch
+- [GPIO] GPIO Controller Enable [SKL+]
 
 #### Current EDID
 ```
