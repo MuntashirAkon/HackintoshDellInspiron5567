@@ -40,3 +40,15 @@ My attempts to install macOS on Dell Inspiron 15-5567 (i3-7100u, Intel HD620)
 - The theme in the **config.plist** is **Outlines**: you should change it to whatever you're using
 - It is generally recommended to keep your kexts in both `Clover/kexts/Other` and `/Library/Extensions`
 - Only the relevant UEFI drivers are included here. You may need **EmuVariableUefi** in case you're having shutdown problems
+
+
+#### AppleALC analysis
+
+| layout-id | Int-Mic | Int-Out | Ext-Mic | Ext-Out | ComboJack | Remark
+| --- | --- | --- | --- | --- | --- | ---
+| 5 | [ ] | [x] | [ ] | [x] | [ ] |
+| 11 | [x] | [x] | [ ] | [x] | [ ] |
+| 13 | [x] | [x] | [ ] | [x] | [x] | Native
+| 13 | [x] | [x] | [ ] | [x] | [ ] | Separate audio inputs
+| 28 | [ ] | [x] | [ ] | [x] | [ ] | Separate audio outputs 
+| 56 | [x] | [x] | [ ] | [x] | [x] | Indentical to layout-id 13
