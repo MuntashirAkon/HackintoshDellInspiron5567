@@ -2,27 +2,22 @@
 My attempts to install macOS on Dell Inspiron 15-5567 (i3-7100u, Intel HD620)
 
 #### Currently not working
-- 32-bit color (proper EDID inject may be needed)
-- WiFi (Need to replace PCI card, currently using external)
-- Card Reader (Will never work)
+- **32-bit color:** You may notice color gradient (due to 24-bit color) if you see an HD movie or
+  open Launchpad. Although this problem is fairly common, nobody seems to bother with it.
+  Proper EDID injection may be required to overcome this problem. I've already tried a lot of
+  combinations, none solved it however
+- **WiFi:** Need to replace the PCIe card with a supported card. I'm currently using an external
+  TL-WN725N wireless adapter
+- **Card Reader:** Probably it will never work as the system cannot detect the amount of ampere
+  required. Some patching at AppleUSBCardReader binary is required to enable it, which requires
+  a lot of effort since nobody ever tried that
+- **Hibernation:** I've disabled it since I'm using an SSD (which is extremely fast)
 
 #### Applied DSDT Patches
-##### General Patches
-- [sys] Fix _WAK Arg0 v2
-- [sys] Fix Mutex with non-zero SyncLevel
-- [sys] Shutdown Fix v2
-- [usb] USB3 _PRW 0x6D Skylake (instant wake)
-##### I2C Patches
-- [Windows] Windows 10 Patch
-- [GPIO] GPIO Controller Enable [SKL+]
-- [TPD0] TPD0 _CRS patch (Bellow)
-  ```
-  into method label _CRS parent_label TPD0 replace_content begin
-  
-  Return (ConcatenateResTemplate (SBFB, SBFG))
-  
-  end;
-  ```
+Patches are now located in the Patches directory in this repo. You can add the following URL to MaciASL at **MaciASL > Preferences > Sources**.
+```
+http://raw.github.com/MuntashirAkon/HackintoshDellInspiron5567/master/Patches
+```
 
 #### EDID
 ##### Current
@@ -39,16 +34,24 @@ My attempts to install macOS on Dell Inspiron 15-5567 (i3-7100u, Intel HD620)
 - In SSDT-UIAC, only the following ports are enabled: HS01, HS02, HS03, HS05, HS06, HS08, SS01 and SS02. Other ports are not needed. You can also disable HS06 (Card Reader) if you want
 - The theme in the **config.plist** is **Outlines**: you should change it to whatever you're using
 - It is generally recommended to keep your kexts in both `Clover/kexts/Other` and `/Library/Extensions`
-- Only the relevant UEFI drivers are included here. You may need **EmuVariableUefi** in case you're having shutdown problems
+- Only the relevant UEFI drivers are included here. You may need **EmuVariableUefi** in case you're having trouble in shutting down your hack
 
+#### Disable Hibernate Mode
+```
+sudo pmset -a hibernatemode 0
+sudo rm /var/vm/sleepimage
+sudo mkdir /var/vm/sleepimage
+sudo pmset -a standby 0
+sudo pmset -a autopoweroff 0
+```
 
 #### AppleALC analysis
 
 | layout-id | Int-Mic | Int-Out | Ext-Mic | Ext-Out | ComboJack | Remark
 | --- | --- | --- | --- | --- | --- | ---
-| 5 | [ ] | [x] | [ ] | [x] | [ ] |
-| 11 | [x] | [x] | [ ] | [x] | [ ] |
-| 13 | [x] | [x] | [ ] | [x] | [x] | Native
-| 13 | [x] | [x] | [ ] | [x] | [ ] | Separate audio inputs
-| 28 | [ ] | [x] | [ ] | [x] | [ ] | Separate audio outputs 
-| 56 | [x] | [x] | [ ] | [x] | [x] | Indentical to layout-id 13
+| 5 | N | Y | N | Y | N |
+| 11 | Y | Y | N | Y | N |
+| 13 | Y | Y | N | Y | Y | Native
+| 13 | Y | Y | N | Y | N | Separate audio inputs
+| 28 | N | Y | N | Y | N | Separate audio outputs 
+| 56 | Y | Y | N | Y | Y | Indentical to layout-id 13
