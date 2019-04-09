@@ -1,0 +1,10 @@
+[sys] Fix _WAK Arg0 v2	_WAK.txt
+[sys] Fix Mutex with non-zero SyncLevel	Mutex.txt
+[sys] Shutdown Fix v2	Shutdown.txt
+[sys] SMBus fix	SMBus_fix.txt
+[sys] IMEI fix	IMEI_fix.txt
+[sys] Enable LPCB	Enable_LPCB.txt
+[usb] USB3 _PRW 0x6D Skylake (instant wake)	InstantWake.txt
+[Windows] Windows 10 Patch	Win10.txt
+[GPIO] GPIO Controller Enable [SKL+]	gpio_sta.txt
+[TPD0] TPD0 _CRS patch	TPD0__CRS_patch.txt

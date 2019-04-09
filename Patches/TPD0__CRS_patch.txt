@@ -1,0 +1,12 @@
+# Patch Name: [TPD0] TPD0 _CRS patch
+# File: TPD0__CRS_patch.txt
+# This is an patch for I2C touchpad with ACPI ID TPD0
+# Replace TPD0 with TPD1 or whatever your touch pad ACPI
+# ID is.
+
+into method label _CRS parent_label TPD0 replace_content
+begin
+
+  Return (ConcatenateResTemplate (SBFB, SBFG))
+
+end;
