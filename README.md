@@ -52,6 +52,8 @@ sudo pmset -a autopoweroff 0
 | 5 | N | Y | N | Y | N |
 | 11 | Y | Y | N | Y | N |
 | 13 | Y | Y | N | Y | Y | Native
-| 13 | Y | Y | N | Y | N | Separate audio inputs
-| 28 | N | Y | N | Y | N | Separate audio outputs 
+| 21 | Y | Y | N | Y | N | Separate audio inputs
+| 28 | N | Y | N | Y | N | Separate audio outputs
 | 56 | Y | Y | N | Y | Y | Indentical to layout-id 13
+
+You can use one of 13, 21 or 56 since external mic isn't working in all of them. If you're using layout 21, you don't need ComboJack and VerbStub.kext: use CodecCommander.kext instead.
