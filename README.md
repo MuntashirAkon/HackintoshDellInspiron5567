@@ -5,7 +5,8 @@ My attempts to install macOS on Dell Inspiron 15-5567 (i3-7100u, Intel HD620)
 - **32-bit color:** You may notice color gradient (due to 24-bit color) if you see an HD movie or
   open Launchpad. Although this problem is fairly common, nobody seems to bother with it.
   Proper EDID injection may be required to overcome this problem. I've already tried a lot of
-  combinations, none solved it however
+  combinations, none solved it however. SkyLake-spoofing seems to solve this problem but
+  only partially.
 - **WiFi:** Need to replace the PCIe card with a supported card. I'm currently using an external
   TL-WN725N wireless adapter
 - **Card Reader:** Probably it will never work as the system cannot detect the amount of ampere
