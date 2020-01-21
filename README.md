@@ -1,7 +1,7 @@
 # HackintoshDellInspiron5567
 My attempts to install macOS on Dell Inspiron 15-5567 (i3-7100u, Intel HD620)
 
-Tested OS version(s): 10.14.6 (macOS Mojave)
+Tested OS version(s): 10.14.6 (macOS Mojave), 10.15.2 (macOS Catalina)
 
 #### Currently not working
 - **32-bit color:** You may notice color gradient (due to 24-bit color) if you see an HD movie or
@@ -15,10 +15,10 @@ Tested OS version(s): 10.14.6 (macOS Mojave)
   required. Some patching at AppleUSBCardReader binary is required to enable it, which requires
   a lot of effort since nobody ever tried that
 - **Hibernation:** I've disabled it since I'm using an SSD (which is extremely fast)
-- **Shutdown/reboot problem**: The device often shuts itself down with a noise if reboot/shutdown is requested. If this happens, remove the charging cable (or try pushing the button with a regular interval) to start the device again
+- **Shutdown/reboot problem**: The device may shut itself down with a noise when reboot/shutdown is requested. If this happens, remove the charging cable (or try pushing the button with a regular interval) to start the device again
 
 #### Notes
-- Be sure to fill the *MASKED* values at `config.plist/PlatformInfo` as well as ROM values. (See the PlatformInfo section of the OC's guide if you don't know which values to put there)
+- Be sure to fill the *MASKED* values at `config.plist/PlatformInfo/Generic` as well as ROM values. (See the PlatformInfo section of the OC's guide if you don't know which values to put there)
 - In SSDT-UIAC, only the following ports are enabled: HS01, HS02, HS03, HS05, HS06, HS08, SS01 and SS02. Other ports are not needed. You can also disable HS06 (Card Reader) if you want
 - It is generally recommended to keep your kexts in both `OC/Kexts` and `/Library/Extensions`
 
