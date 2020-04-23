@@ -1,1 +1,3 @@
 *.DS_Store
+# Ignore real configs
+Bootloader/config*.plist
