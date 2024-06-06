@@ -2,6 +2,7 @@
 
 All the drivers below have to be present at `OC/Drivers`.
 
+**The following drivers are located in the this repo:**
 - ApfsDriverLoader.efi
 - ext4_x64.efi - Linux driver
 
